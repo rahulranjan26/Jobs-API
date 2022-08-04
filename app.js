@@ -6,6 +6,11 @@ const app = express();
 // DB connection
 const connectDB = require('./db/connect')
 
+//Test Api Route
+app.use('/', (req, res) => {
+    res.send("Successful!!")
+})
+
 // Router
 const authRouter = require('./routes/auth')
 const jobRouter = require('./routes/jobs')
