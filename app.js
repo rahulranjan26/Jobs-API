@@ -6,10 +6,7 @@ const app = express();
 // DB connection
 const connectDB = require('./db/connect')
 
-//Test Api Route
-app.use('/', (req, res) => {
-    res.send("Successful!!")
-})
+
 
 // Router
 const authRouter = require('./routes/auth')
@@ -49,6 +46,12 @@ app.use(xss())
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', auth, jobRouter);
+
+
+//Test Api Router
+app.use('/', (req, res) => {
+    res.send("Successful!!")
+})
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
